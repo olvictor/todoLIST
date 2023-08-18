@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Form = () => {
+const Form = ({setTodos}) => {
   return (
     <form>
-        <input type="text" />
+        <input type="text" placeholder='Digite sua tarefa'/>
         <button>Submit</button>
     </form>
   )
