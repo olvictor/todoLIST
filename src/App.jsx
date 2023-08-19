@@ -1,8 +1,10 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { motion, useDragControls  } from 'framer-motion'
 import { useRef } from 'react'
 import {BsTrash} from 'react-icons/bs'
 import {AiFillPlusCircle} from 'react-icons/ai'
+import {FiEdit} from 'react-icons/fi'
+
 import './App.css'
 import Form from './components/form'
 function App() {
@@ -11,6 +13,23 @@ function App() {
 
 
   const [todos, setTodos] = useState([])
+  const [checked, setChecked] = useState(false)
+  
+  useEffect(()=>{
+   const getTodos = async () =>{
+    const getarrayTodos = await fetch('http://localhost:8000/todos')
+    const arrayJSON = await getarrayTodos.json()
+    setTodos(arrayJSON)
+   }
+   getTodos()
+
+
+  },[])
+
+
+  const handleCheck = (e) =>{
+    console.log(e)
+  }
 
   return (
     <>
@@ -27,16 +46,17 @@ function App() {
       }}
     ref={constraintsRef}
     >
-      <motion.li drag dragControls={controls} dragConstraints={constraintsRef} style={{width:'30%',backgroundColor:'red'}}>
+      {todos && todos.map((todo)=>(
+        <motion.li key={todo.id} drag dragControls={controls} dragConstraints={constraintsRef} style={{width:'30%',backgroundColor:'red'}}>
         <div style={{display:'flex',height:'20px',alignItems:'center',gap:'6px',textAlign:'center'}}>
-          <input type="checkbox" name="" id="" />
-          <p>aa</p>
+          <input type="checkbox" checked={checked} onChange={handleCheck}/>
+          <p>{todo.todo}</p>
           <AiFillPlusCircle />
-        </div> <BsTrash/>
+        </div> 
+        <FiEdit />
+        <BsTrash/>
       </motion.li>
-      <motion.li drag dragControls={controls} dragConstraints={constraintsRef} style={{width:'30%',backgroundColor:'red'}}>aa</motion.li>
-      <motion.li drag dragControls={controls} dragConstraints={constraintsRef} style={{width:'30%',backgroundColor:'red'}}>aa</motion.li>
-
+      ))}
     </motion.div>
     </>
   )
