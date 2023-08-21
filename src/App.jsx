@@ -32,12 +32,12 @@ function App() {
   }
 
   return (
-    <>
+    <section>
     <motion.h1 animate={{scale: [1.25,2,1.5,1]}}>TODOLIST</motion.h1>
     <Form setTodos={setTodos}/>
     <motion.div
       style={{
-        width:400,
+        width:'80vw',
         height:'auto',
         borderRadius:10,
         backgroundColor: "rgba(255,255,255,0.5)",
@@ -47,7 +47,7 @@ function App() {
     ref={constraintsRef}
     >
       {todos && todos.map((todo)=>(
-        <motion.li key={todo.id} drag dragControls={controls} dragConstraints={constraintsRef} style={{width:'30%',backgroundColor:'red'}}>
+        <motion.li key={todo.id} drag dragControls={controls} dragConstraints={constraintsRef} style={{width:'40%',backgroundColor:'red',opacity:'0.8',borderRadius:'6px'}}>
         <div style={{display:'flex',height:'20px',alignItems:'center',gap:'6px',textAlign:'center'}}>
           <input type="checkbox" checked={checked} onChange={handleCheck}/>
           <p>{todo.todo}</p>
@@ -57,8 +57,9 @@ function App() {
         <BsTrash/>
       </motion.li>
       ))}
+      {todos.length === 0 && <p>Não há tarefas registradas</p>}
     </motion.div>
-    </>
+    </section>
   )
 }
 

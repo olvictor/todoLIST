@@ -33,7 +33,7 @@ const Form = ({setTodos}) => {
   return (
     <form onSubmit={handleSubmit}>
         <input type="text" placeholder='Digite sua tarefa' onChange={({target})=>{setTodo(target.value)}} value={todo || ''}/>
-        <button>Submit</button>
+        <button>Registrar</button>
     </form>
   )
 }

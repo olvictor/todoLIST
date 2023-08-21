@@ -6,32 +6,42 @@
   background-size: cover;
 }
 
-body {
-  margin: 0;
+body{
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
 }
-
 input{
   border: none;
   outline: none;
-  padding: 5px;
+  padding: 10px;
   border-radius: 4px;
-  height: 20px;
+  height: 18px;
+  color: #a93945;
+}
+
+input::placeholder{
+  color: #FFA500;
+  font-weight: bolder;
 }
 
 button{
   border: none;
   outline: none;
   border-radius: 4px;
-  padding: 6px;
+  padding: 10px;
   margin-left: 5px;
   cursor: pointer;
   color: white;
-  background-color: orange;
+  background-color: #FFA500;
+  font-weight: bolder;
+  transition:  .6s ease-in-out;
 }
+
+button:hover{
+  color: #a93945;
+  background-color: #fff;
+  border: 1px solid #a93945;
+}
+
 
 li{
   display: flex;
@@ -50,4 +60,19 @@ opacity: 0.8;
 
 svg:hover{
   fill: red;
+}
+
+
+h1{
+  margin-top: 60px;
+  letter-spacing: 10px;
+  font-size: 3rem;
+  color: #FFA500;
+}
+
+
+section{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
