@@ -27,8 +27,17 @@ function App() {
   },[])
 
 
-  const handleCheck = (e) =>{
-    console.log(e)
+  const handleCheck = async (todo) =>{
+    const id = todo.id
+    todo.done = !todo.done
+
+    const editTodo = await fetch(`http://localhost:8000/todos/${id}/checked`,{
+      method:'PATCH',
+      body: JSON.stringify(todo.done),
+      headers: {
+        'Content-Type' : 'application/json'
+      }
+    })
   }
 
   return (
@@ -49,7 +58,7 @@ function App() {
       {todos && todos.map((todo)=>(
         <motion.li key={todo.id} drag dragControls={controls} dragConstraints={constraintsRef} style={{width:'40%',backgroundColor:'red',opacity:'0.8',borderRadius:'6px'}}>
         <div style={{display:'flex',height:'20px',alignItems:'center',gap:'6px',textAlign:'center'}}>
-          <input type="checkbox" checked={checked} onChange={handleCheck}/>
+          <input type="checkbox" checked={todo.done} onChange={()=>handleCheck(todo)}/>
           <p>{todo.todo}</p>
           <AiFillPlusCircle />
         </div> 
