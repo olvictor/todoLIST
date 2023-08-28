@@ -32,5 +32,35 @@ O armazenamento do projeto é feito em um **[Banco de dados](https://github.com/
     <br>
     Utilizar o comando npm run dev para iniciar o projeto.
     <br>
+    <br>
      <img src="https://i.imgur.com/25hjnJu.png" width="200" /> 
+    <br>
+    <br>
+
+    Para fazer a requisição de todas as tarefas é preciso usa o método 'GET' na rota localhost:8000/todos
+    
+    Para adicionar uma nova tarefa basta usar o método 'POST' na rota localhost:8000/todos, sendo necessário enviar body da requisição o id, todo, done.
+    
+    Para deletar uma tarefa basta usar o método 'DELETE', na rota localhost:8000/todos/:id, passando o ID da tarefa que deseja deletar como parâmetro de rota .
+
+    Para alterar o status 'check' do input basta usar o método put na rota localhost:8000/todos/:id/checked, passando o ID da tarefa que deseja alterar o status como parâmetro de rota e enviando no corpo da requisição o novo status e a tarefa.
   </ul>
+
+[Faça o Download](https://github.com/olvictor/todolist) do frontend.
+
+<ul>
+   Execute o projeto e instale as dependências utilizando o npm install.
+  <br>
+  <br>
+   Utilizar o comando npm run dev para iniciar o projeto.
+  <br>
+  <br>
+   <img src="https://i.imgur.com/o3si5tH.png" width="200" /> 
+  <br>
+  <br>
+  Agora basta acessar o link: localhost:5173 e utilizar o site !
+  <br>
+  <br>
+  <img src="https://i.imgur.com/iu9V0VY.png" width="600" /> 
+  
+</ul>
