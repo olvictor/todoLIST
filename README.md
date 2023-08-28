@@ -4,6 +4,7 @@
 O projeto tem como objetivo criar uma aplicação web  para ajudar os usuários a gerenciar suas tarefas diárias de forma eficiente.
 
 ### Funcionalidades do projeto
+<ul>
 Adicionar novas tarefas à lista.
 <br>
 Marcar tarefas como concluídas.
@@ -12,6 +13,7 @@ Remover tarefas da lista.
 <br>
 Filtrar tarefas por status (concluídas/pendentes).
 <br>
+</ul>
 
 ### Tecnlogias Utilizadas
 <img aling="center" src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" alt="javascript"/>
@@ -24,3 +26,9 @@ O armazenamento do projeto é feito em um **[Banco de dados](https://github.com/
 
 ### Como Utilizar o projeto
 
+[Faça o Download](https://github.com/olvictor/backend-todolist) do backend para que as tarefas possam ser adicionadas e armazenadas.
+  <ul>
+    Executar o projeto do backend e iniciar utilizando o comando npm run dev.
+    <br>
+     <img src="https://i.imgur.com/25hjnJu.png" width="200" /> 
+  </ul>
