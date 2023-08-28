@@ -26,17 +26,25 @@ function App() {
 
   },[])
 
-
   const handleCheck = async (todo) =>{
     const id = todo.id
     todo.done = !todo.done
 
+    
+
     const editTodo = await fetch(`http://localhost:8000/todos/${id}/checked`,{
-      method:'PATCH',
-      body: JSON.stringify(todo.done),
+      method: 'PUT',
+      body: JSON.stringify(todo),
       headers: {
-        'Content-Type' : 'application/json'
+        'Content-Type': 'application/json; charset=UTF-8'
       }
+    })
+  }
+
+
+  const handleDelete = async(todo) =>{
+    await fetch(`http://localhost:8000/todos/${todo.id}`,{
+      method: 'DELETE'
     })
   }
 
@@ -63,7 +71,7 @@ function App() {
           <AiFillPlusCircle />
         </div> 
         <FiEdit />
-        <BsTrash/>
+        <BsTrash onClick={()=>handleDelete(todo.id)}/>
       </motion.li>
       ))}
       {todos.length === 0 && <p>Não há tarefas registradas</p>}
