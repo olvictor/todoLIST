@@ -4,6 +4,7 @@
   background-image: url(./assets/22cfde6c6415e1f061e49e0983059782.gif);
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
 }
 
 body{
@@ -75,4 +76,20 @@ section{
   display: flex;
   flex-direction: column;
   gap: 30px;
+}
+
+.modal{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+svg{
+  cursor: pointer;
 }

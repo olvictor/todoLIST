@@ -2,16 +2,19 @@ import React, { useState } from 'react'
 import { TODO_POST } from '../../useFetch.js'
 
 
-const Form = ({setTodos}) => {
+const Form = ({todos,setTodos}) => {
   const [todo, setTodo] = useState('');
 
   const handleSubmit = async (e) =>{
+
     e.preventDefault();
     const todoObj = {
+      id: Math.random(),
       todo,
       done: false
     }
-    const { url, options} = TODO_POST(todoObj)
+
+    setTodos([...todos, todoObj])
 
     try{
       await fetch('http://localhost:8000/todos',{
