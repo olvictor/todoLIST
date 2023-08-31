@@ -88,12 +88,14 @@ function App() {
             <FiEdit onClick={()=> {
             setModal(true)
             openModal(todo)
-            }}/>
+            }}
+            />
             <BsTrash onClick={()=> handleDelete(todo.id)}/>
           </div>
         </motion.li>
         ))}
-        {modal === true && <Modal data={modalData} setModal={setModal} />}
+        {modal === true && <Modal data={modalData} setModal={setModal} todos={todos}
+            setTodos={setTodos}/>}
         {todos.length === 0 && <p>Não há tarefas registradas</p>}
       </motion.div>
     </section>
