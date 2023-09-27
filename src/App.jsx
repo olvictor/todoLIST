@@ -64,25 +64,25 @@ function App() {
     <section>
       <motion.h1 animate={{scale: [1.25,2,1.5,1]}}>TODOLIST</motion.h1>
       <div>
-        <h2>Restam {todosIncompletos.length} de {todos.length} tarefas.</h2>
+        {todos.length > 0 ? <h2 style={todosIncompletos.length === 0  ?{color:'#12bcd6'} : {color:'yellow'}}>{todosIncompletos.length === 0  ? 'Todas as tarefas foram completadas' : `Restam ${todosIncompletos.length} de ${todos.length} tarefas.`}</h2>  : '' }
       </div>
       <Form setTodos={setTodos} todos={todos}/>
       <motion.div 
         style={{
           width:'80vw',
-          height:'auto',
+          minHeight:'200px',
           borderRadius:10,
-          backgroundColor: "rgba(255,255,255,0.5)",
+          backgroundColor: "#12bcd6",
           position:'relative',
           padding: '20px'
         }}
         ref={constraintsRef}
         >
         {todos && todos.map((todo)=>(
-          <motion.li key={todo.id} drag dragControls={controls} dragConstraints={constraintsRef} style={{width:'30%',backgroundColor:'#fff',opacity:'0.8',borderRadius:'6px',color:'#FFA500',display:'flex'}}>
+          <motion.li key={todo.id} drag dragControls={controls} dragConstraints={constraintsRef} style={{width:'30vw',backgroundColor:'#fff',borderRadius:'6px',color:'#e6625e',display:'flex'}}>
           <div style={{display:'flex',height:'20px',alignItems:'center',gap:'6px',textAlign:'center'}}>
             <input type="checkbox" checked={todo.done} onChange={()=>handleCheck(todo)}/>
-            <p style={{textDecoration: todo.done === true ? 'line-through' : '' }}>{todo.todo}</p>
+            <p style={{textDecoration: todo.done === true ? 'line-through' : '' }}>{todo.task}</p>
           </div> 
           <div style={{display:'flex',gap:'10px'}}>
             <FiEdit onClick={()=> {

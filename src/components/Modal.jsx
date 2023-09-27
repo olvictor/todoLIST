@@ -8,7 +8,7 @@ const Modal = ({data, setModal,todos,setTodos}) => {
 
   const submitEdit = async () =>{
     const todoEncontrado = todos.find((todo)=> todo.id === data.id)
-    todoEncontrado.todo = editTodo
+    todoEncontrado.task = editTodo
     setTodos(todos)
     
       await fetch(`http://localhost:8000/todos/${data.id}`,{

@@ -1,19 +1,17 @@
 import React, { useState } from 'react'
-import { TODO_POST } from '../../useFetch.js'
 
 
 const Form = ({todos,setTodos}) => {
-  const [todo, setTodo] = useState('');
+  const [task, setTask] = useState('');
 
   const handleSubmit = async (e) =>{
 
     e.preventDefault();
+
     const todoObj = {
-      id: Math.random(),
-      todo,
+      task,
       done: false
     }
-
     setTodos([...todos, todoObj])
 
     try{
@@ -28,14 +26,13 @@ const Form = ({todos,setTodos}) => {
     catch(erro){
       console.log(erro)
     }
-
-    setTodo("")
+    setTask("")
   }
 
 
   return (
     <form onSubmit={handleSubmit}>
-        <input type="text" placeholder='Digite sua tarefa' onChange={({target})=>{setTodo(target.value)}} value={todo || ''}/>
+        <input type="text" placeholder='Digite sua tarefa' onChange={({target})=>{setTask(target.value)}} value={todo || ''}/>
         <button>Registrar</button>
     </form>
   )
